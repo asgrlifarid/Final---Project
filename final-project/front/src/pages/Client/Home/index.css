@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+ 
+}
+
+.hero {
+
+  height: 80vh;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* padding-left: 5%; */
+}
+#hero{
+background: url("https://www.microsoft.com/en-us/research/uploads/prod/2020/03/gamesummit_1920x720.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+  color: white;
+   
+}
+
+.content h1 {
+  font-size: 2.5rem;
+    font-family: "Mulish", serif;
+}
+
+.content p {
+  font-size: 1.2rem;
+    font-family: "Mulish", serif;
+}
+
+.content button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #0078d4;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.content button:hover {
+  background-color: #005ea6;
+}
+.shop-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #252525; /* Hafif gri arka plan */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0px auto;
+  max-width: 1200px;
+}
+
+.shop-section h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.shop-section h4 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+/* Mobil uyum */
+@media (max-width: 768px) {
+  .shop-section {
+    padding: 40px 15px;
+  }
+
+  .shop-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .shop-section h4 {
+    font-size: 1rem;
+  }
+}
+#selling{
+  background-color: #118475;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+
+/* Mobil uyum */
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .content {
+    align-items: center;
+  }
+}

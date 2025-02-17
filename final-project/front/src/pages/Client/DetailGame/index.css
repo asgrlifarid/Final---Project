@@ -1,0 +1,74 @@
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.detail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 3%;
+}
+
+.image-container {
+  flex: 1;
+  max-width: 400px;
+}
+
+.game-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.infos {
+  flex: 1;
+  max-width: 500px;
+  text-align: left;
+}
+
+.game-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.game-description {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.game-price, .game-category {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.game-price span, .game-category span {
+  color: #ff5733;
+}
+
+.loading, .error, .not-found {
+  font-size: 18px;
+  color: #d9534f;
+  font-weight: bold;
+}
+.go-home-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #ff0f07;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.go-home-button:hover {
+  background-color: #d9534f;
+}
+

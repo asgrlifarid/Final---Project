@@ -16,7 +16,7 @@ const getGameById = async (req, res) => {
   try {
     const game = await GamesModel.findById(id);
 
-    if (!user) {
+    if (!game) {
       return res.status(404).json({ message: "category not found!" });
     }
 

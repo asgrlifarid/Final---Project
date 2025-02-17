@@ -11,7 +11,7 @@ const GamesSchema = new Schema(
     description: { type: String, required: true },
     imageUrl: { type: String, required: true },
     raiting: { type: Number },
-    oldPrice: { type: Number },
+    gameLink :{type: String},
     category: { type: String },
   },
   { timestamps: true }

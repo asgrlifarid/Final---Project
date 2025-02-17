@@ -1,0 +1,68 @@
+.container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.allDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  width: 320px;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background: #fff;
+}
+
+.imageWrapper img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 10px;
+
+  button, a {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  button:hover, a:hover {
+    color: #ff4d4d;
+  }
+}
+
+.goHomeButton {
+  margin-top: 2rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.goHomeButton:hover {
+  background: #0056b3;
+}
+.emptyMessage {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #888;
+  margin-top: 20px;
+}
