@@ -26,6 +26,20 @@ export const usersApi = createApi({
         body: payload,
       }),
     }),
+    editUser: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/users/${id}`,
+        method: "PUT",
+        body: data,
+      }),
+    }),
+    banUser: builder.mutation({
+      query: ({ id, banDuration }) => ({
+        url: `/users/ban/${id}`,
+        method: "POST",
+        body: { banDuration },
+      }),
+    }),
   }),
 });
 
@@ -36,4 +50,6 @@ export const {
   useGetUsersByIdQuery,
   useDeleteUsersMutation, // Güncellendi
   usePostUsersMutation, // Güncellendi
+  useBanUserMutation, 
+  useEditUserMutation,
 } = usersApi;

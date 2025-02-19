@@ -1,0 +1,115 @@
+/* Genel Arka Plan */
+.pprrofile{
+    background-color: #118475;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.profile-container {
+  max-width: 420px;
+  width: 100%;
+  background: #000; /* Kartın arka planı siyah */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin: 0 auto;
+ 
+  color: white; /* Genel yazılar beyaz */
+}
+
+/* Profil Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #333;
+}
+
+.profile-qr {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+}
+
+.profile-info h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.profile-info span {
+  color: #bbb;
+  font-size: 14px;
+}
+
+/* Chat Banner */
+.chat-banner {
+  background-color: #118475;
+  color: white;
+  padding: 25px;
+  text-align: center;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.chat-banner p {
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+
+.chat-button {
+  background: #fff;
+  color: black;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 40px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.chat-button:hover {
+  background: #00cc00;
+}
+
+/* Menü */
+.menu-list {
+  padding: 10px 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid #333;
+  transition: background 0.2s ease-in-out;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.menu-item span {
+  font-size: 16px;
+}
+
+/* Çıkış Butonu */
+.logout {
+  color: #ff3b30;
+  font-weight: bold;
+}
+
+.logout:hover {
+  background-color: rgba(255, 59, 48, 0.1);
+}

@@ -1,0 +1,65 @@
+/* General Container Styling */
+.add-tournament-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.add-tournament-form {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Labels */
+.add-tournament-label {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Inputs and Textarea */
+.add-tournament-input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+.add-tournament-input:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Error Messages */
+.add-tournament-error {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+/* Submit Button */
+.add-tournament-button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-tournament-button:hover {
+  background: #0056b3;
+}

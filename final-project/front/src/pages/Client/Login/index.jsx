@@ -1,34 +1,68 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie"; 
-
+import Cookies from "js-cookie";
+import Swal from "sweetalert2";
 import "./index.css";
 import { useLoginUserMutation } from "../../../redux/services/authApi";
 
-
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [hasError, setHasError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUserName] = useState("");
+
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [generalError, setGeneralError] = useState("");
 
   const [loginUser] = useLoginUserMutation();
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setHasError(false); 
+
+    setEmailError("");
+    setPasswordError("");
+    setGeneralError("");
+
+    if (!email.trim()) {
+      setEmailError("Email field cannot be empty");
+      return;
+    }
+
+    if (!password.trim()) {
+      setPasswordError("Password field cannot be empty");
+      return;
+    }
 
     try {
-      const response = await loginUser({ email, password }).unwrap();
+      const response = await loginUser({ email, username, password }).unwrap();
+      console.log("Login Response:", response);
+
+      const bannedUntil = response.user?.bannedUntil
+        ? new Date(response.user.bannedUntil)
+        : null;
+      const now = new Date();
+
+      if (bannedUntil && bannedUntil > now) {
+        Swal.fire({
+          title: "Access Denied",
+          text: `Your account is banned until ${bannedUntil.toLocaleString()}. Contact support for more info.`,
+          icon: "error",
+        });
+        return; // Token kaydedilmiyor!
+      }
+
       if (response.token) {
         Cookies.set("token", response.token, { expires: 1 });
-        navigate("/");
+        localStorage.setItem("token", response.token);
+        localStorage.setItem(
+          "username",
+          response.user?.username || response.user?.email || "Guest"
+        );
       } else {
-        setHasError(true);
+        setGeneralError("Invalid email or password");
       }
     } catch (error) {
-      setHasError(true);
+      setGeneralError("Invalid email or password");
       console.error("Login failed", error);
     }
   };
@@ -53,14 +87,14 @@ const Login = () => {
 
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="email">Email or Username</label>
+            <label htmlFor="email">Email</label>
             <input
               id="email"
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email or Username"
-              className={hasError ? "error" : ""}
+              placeholder="Email"
+              className={emailError ? "error" : ""}
             />
           </div>
 
@@ -73,6 +107,7 @@ const Login = () => {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className={passwordError ? "error" : ""}
               />
               <button
                 type="button"
@@ -92,9 +127,7 @@ const Login = () => {
             </label>
           </div>
 
-          {hasError && (
-            <p className="error-message">Invalid email or password</p>
-          )}
+          {generalError && <p className="error-message">{generalError}</p>}
 
           <button type="submit" className="login-button">
             Log In

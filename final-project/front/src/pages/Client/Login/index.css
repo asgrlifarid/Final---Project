@@ -1,3 +1,171 @@
+/* Login ekranı */
+.login-container {
+  min-height: 100vh;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  background-color: #121212;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.login-container .logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.login-container .logo img {
+  object-fit: contain;
+}
+
+.login-container h1 {
+  color: white;
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.login-container .divider {
+  position: relative;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.login-container .divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #292929;
+}
+
+.login-container .divider span {
+  position: relative;
+  background-color: #121212;
+  padding: 0 1rem;
+  color: #a7a7a7;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.login-form label {
+  color: white;
+  font-size: 0.875rem;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #121212;
+  border: 1px solid #727272;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: white;
+}
+
+.login-form .password-input {
+  position: relative;
+}
+
+.login-form .toggle-password {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.login-container .remember-me {
+  display: flex;
+  align-items: center;
+}
+
+.login-container .checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.login-container .checkbox-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: #1ed760;
+  border: none;
+  border-radius: 500px;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover {
+  background-color: #1fdf64;
+}
+
+.forgot-password {
+  text-align: center;
+}
+
+.forgot-password a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1rem;
+  }
+
+  .login-container h1 {
+    font-size: 1.5rem;
+  }
+}
+
 /* Register ekranı */
 .register-container {
   min-height: 100vh;
@@ -16,20 +184,17 @@
   border-radius: 8px;
 }
 
-/* Logo */
-.logo {
+.register-container .logo {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 }
 
-.logo img {
-
+.register-container .logo img {
   object-fit: contain;
 }
 
-/* Heading */
-h1 {
+.register-container h1 {
   color: white;
   text-align: center;
   font-size: 1.875rem;
@@ -37,47 +202,13 @@ h1 {
   margin-bottom: 2rem;
 }
 
-/* Social buttons */
-.social-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.social-button {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem;
-  border: 1px solid #727272;
-  border-radius: 500px;
-  background: transparent;
-  color: white;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: border-color 0.2s;
-}
-
-.social-button:hover {
-  border-color: white;
-}
-
-.social-button img {
-  width: 20px;
-  height: 20px;
-  margin-right: 0.5rem;
-}
-
-/* Divider */
-.divider {
+.register-container .divider {
   position: relative;
   margin: 2rem 0;
   text-align: center;
 }
 
-.divider::before {
+.register-container .divider::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -87,32 +218,31 @@ h1 {
   background-color: #292929;
 }
 
-.divider span {
+.register-container .divider span {
   position: relative;
   background-color: #121212;
   padding: 0 1rem;
   color: #a7a7a7;
 }
 
-/* Form */
 .register-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.form-group {
+.register-form .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-label {
+.register-form label {
   color: white;
   font-size: 0.875rem;
 }
 
-input {
+.register-form input {
   width: 100%;
   padding: 0.75rem;
   background-color: #121212;
@@ -122,17 +252,16 @@ input {
   font-size: 1rem;
 }
 
-input:focus {
+.register-form input:focus {
   outline: none;
   border-color: white;
 }
 
-/* Password input */
-.password-input {
+.register-form .password-input {
   position: relative;
 }
 
-.toggle-password {
+.register-form .toggle-password {
   position: absolute;
   right: 0.75rem;
   top: 50%;
@@ -144,13 +273,12 @@ input:focus {
   font-size: 0.875rem;
 }
 
-/* Remember me checkbox */
-.remember-me {
+.register-container .remember-me {
   display: flex;
   align-items: center;
 }
 
-.checkbox-container {
+.register-container .checkbox-container {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -159,13 +287,12 @@ input:focus {
   cursor: pointer;
 }
 
-.checkbox-container input[type="checkbox"] {
+.register-container .checkbox-container input[type="checkbox"] {
   width: 16px;
   height: 16px;
   margin: 0;
 }
 
-/* Register button */
 .register-button {
   width: 100%;
   padding: 0.875rem;
@@ -183,32 +310,12 @@ input:focus {
   background-color: #1fdf64;
 }
 
-/* Forgot password */
-.forgot-password {
-  text-align: center;
-}
-
-.forgot-password a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.875rem;
-}
-
-.forgot-password a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive design */
 @media (max-width: 480px) {
   .register-card {
     padding: 1rem;
   }
 
-  h1 {
+  .register-container h1 {
     font-size: 1.5rem;
-  }
-
-  .social-button {
-    padding: 0.625rem;
   }
 }

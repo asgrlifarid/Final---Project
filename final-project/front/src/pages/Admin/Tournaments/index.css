@@ -1,0 +1,70 @@
+.tournament-table-container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.tournament-table-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.tournament-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tournament-table th, .tournament-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.tournament-table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.tournament-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tournament-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.tournament-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.tournament-delete-button, .tournament-edit-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.tournament-delete-button {
+  background-color: #ff4d4d;
+  color: white;
+  margin-right: 10px;
+}
+
+.tournament-delete-button:hover {
+  background-color: #d33;
+}
+
+.tournament-edit-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.tournament-edit-button:hover {
+  background-color: #388E3C;
+}

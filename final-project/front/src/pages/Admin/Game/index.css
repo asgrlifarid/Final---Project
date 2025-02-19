@@ -1,0 +1,70 @@
+.game-table-container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.game-table-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.game-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-table th, .game-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.game-table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.game-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.game-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.game-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.delete-button, .edit-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
+  color: white;
+  margin-right: 10px;
+}
+
+.delete-button:hover {
+  background-color: #d33;
+}
+
+.edit-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #388E3C;
+}

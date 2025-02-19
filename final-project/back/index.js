@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const gameRouter = require("./route/routeGames");
+
+const tournamentRouter = require("./route/routeTournament");
 const userRouter = require("./route/userRoute");
 const authRouter = require("./route/authRoute");
 
@@ -12,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/games", gameRouter);
 app.use("/api/users", userRouter);
+app.use("/api/tournaments",tournamentRouter);
 app.use("/api", authRouter);
 
 mongoose

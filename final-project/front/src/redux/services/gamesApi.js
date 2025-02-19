@@ -2,7 +2,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // API servisini tanımla
 export const gamesApi = createApi({
- 
   reducerPath: "gamesApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8080/api/" }),
   endpoints: (builder) => ({
@@ -25,6 +24,13 @@ export const gamesApi = createApi({
         body: payload,
       }),
     }),
+    editGames: builder.mutation({
+      query: ({ id, ...payload }) => ({
+        url: `games/${id}`,
+        method: "PUT",
+        body: payload,
+      }),
+    }),
   }),
 });
 
@@ -34,4 +40,5 @@ export const {
   useGetGamesByIdQuery,
   useDeleteGamesMutation,
   usePostGamesMutation,
+  useEditGamesMutation,
 } = gamesApi;

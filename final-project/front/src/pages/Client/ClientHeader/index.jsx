@@ -1,15 +1,21 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FaUser } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FaUser, FaHeart } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import "./index.css";
 
 const ClientHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
+  const [username, setUsername] = useState(null);
 
-  // Toggle the menu open or closed
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    setUsername(
+      storedUsername && storedUsername !== "null" ? storedUsername : null
+    );
+  }, []);
+
+  // Menü açma-kapatma
   const toggleMenu = () => {
     setMenuOpen((prevState) => !prevState);
   };
@@ -35,7 +41,6 @@ const ClientHeader = () => {
               <li>
                 <Link to="/tournament">Tournaments</Link>
               </li>
-
               <li>
                 <Link to="/privacy">Privacy</Link>
               </li>
@@ -43,17 +48,22 @@ const ClientHeader = () => {
                 <Link to="/cookies">Cookies</Link>
               </li>
               <li>
-                <Link to="/tos">Teams of Use</Link>
+                <Link to="/tos">Terms of Use</Link>
               </li>
             </ul>
           </nav>
           <div className="icons">
-            <button onClick={() => navigate("/profile")}>
-              <FaUser />
-            </button>
-            <button onClick={() => navigate("/wishlist")}>
+            <Link to="/wishlist">
               <FaHeart />
-            </button>
+            </Link>
+            {username ? (
+              <div className="user-info">
+                <FaUser />
+                <p>{username}</p>
+              </div>
+            ) : (
+              <Link to="/login">Log in</Link>
+            )}
           </div>
           <div className="new-menu-item" onClick={toggleMenu}>
             <FiMenu />

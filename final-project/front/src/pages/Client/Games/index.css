@@ -88,12 +88,14 @@
 
 .game-info button:hover {
   background: rgba(255, 255, 255);
+  
   transform: scale(1.1);
 }
 
 .game-info button svg {
   font-size: 22px;
-  color: red;
+  color: rgb(255, 0, 0);
+
 }
 
 

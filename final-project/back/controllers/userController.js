@@ -71,10 +71,32 @@ const editUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+const banUser = async (req, res) => {
+  const { id } = req.params;
+  const { banDuration } = req.body; // Gün cinsinden
+
+  try {
+    const user = await UserModel.findById(id);
+    if (!user) return res.status(404).json({ message: "User not found!" });
+
+    const bannedUntil = new Date();
+    bannedUntil.setDate(bannedUntil.getDate() + banDuration);
+
+    user.bannedUntil = bannedUntil;
+    await user.save();
+
+    res.status(200).json({
+      message: `User banned until ${bannedUntil.toLocaleDateString()}`,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 module.exports = {
   getAllUsers,
   getUserById,
   deleteUser,
   editUser,
+  banUser,
 };

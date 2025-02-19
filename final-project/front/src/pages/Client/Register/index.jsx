@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import "./index.css";
 import { useRegUserMutation } from "../../../redux/services/authApi";
 
@@ -7,12 +8,19 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [registerUser] = useRegUserMutation();
   const navigate = useNavigate();
+
+  // Kullanıcı zaten giriş yapmışsa /register sayfasına gitmesini engelle
+  useEffect(() => {
+    if (Cookies.get("token") || localStorage.getItem("token")) {
+      navigate("/profile"); // Kullanıcı giriş yaptıysa ana sayfaya yönlendir
+    }
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,8 +32,8 @@ const Register = () => {
     }
 
     try {
-      await registerUser({ email, name, password }).unwrap();
-      navigate("/login");
+      await registerUser({ email, username, password }).unwrap();
+      navigate("/login"); // Başarılı kayıt sonrası login sayfasına yönlendir
     } catch (error) {
       setHasError(true);
       console.error("Registration failed", error);
@@ -68,8 +76,8 @@ const Register = () => {
             <input
               id="name"
               type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
               placeholder="Username"
             />
           </div>

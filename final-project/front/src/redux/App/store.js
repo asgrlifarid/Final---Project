@@ -5,6 +5,7 @@ import { gamesApi } from "../services/gamesApi";
 import wishlistReducer from "../features/wishlistSlice";
 import { usersApi } from "../services/usersApi";
 import { authApi } from "../services/authApi";
+import { tournamentApi } from "../services/tournamentApi";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     [gamesApi.reducerPath]: gamesApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
+    [tournamentApi.reducerPath]: tournamentApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
@@ -20,7 +22,8 @@ export const store = configureStore({
     getDefaultMiddleware().concat(
       gamesApi.middleware,
       usersApi.middleware,
-      authApi.middleware
+      authApi.middleware,
+      tournamentApi.middleware
     ),
 });
 
