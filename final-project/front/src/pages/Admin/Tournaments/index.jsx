@@ -43,7 +43,7 @@ const TournamentTable = () => {
         tournament.title +
         '" />' +
         '<input id="swal-gameName" class="swal2-input" placeholder="Game Name" value="' +
-        tournament.gameName +
+        tournament.tournamentName +
         '" />' +
         '<input id="swal-image" class="swal2-input" placeholder="Image URL" value="' +
         tournament.imageUrl +
@@ -63,7 +63,7 @@ const TournamentTable = () => {
       preConfirm: () => {
         return {
           title: document.getElementById("swal-title").value,
-          gameName: document.getElementById("swal-gameName").value,
+          tournamentName: document.getElementById("swal-gameName").value,
           imageUrl: document.getElementById("swal-image").value,
           startTime: document.getElementById("swal-startTime").value,
           playersCount: document.getElementById("swal-playersCount").value,
@@ -86,8 +86,8 @@ const TournamentTable = () => {
         <thead>
           <tr>
             <th>Image</th>
-            <th>Title</th>
             <th>Game Name</th>
+            <th>Tournament Name</th>
             <th>Start Time</th>
             <th>Players Count</th>
             <th>Category</th>
@@ -106,7 +106,7 @@ const TournamentTable = () => {
                   />
                 </td>
                 <td>{tournament.title}</td>
-                <td>{tournament.gameName}</td>
+                <td>{tournament.tournamentName}</td>
                 <td>{tournament.startTime}</td>
                 <td>{tournament.playersCount}</td>
                 <td>{tournament.category}</td>

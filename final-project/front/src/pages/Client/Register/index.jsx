@@ -16,11 +16,11 @@ const Register = () => {
   const navigate = useNavigate();
 
   // Kullanıcı zaten giriş yapmışsa /register sayfasına gitmesini engelle
-  useEffect(() => {
-    if (Cookies.get("token") || localStorage.getItem("token")) {
-      navigate("/profile"); // Kullanıcı giriş yaptıysa ana sayfaya yönlendir
-    }
-  }, [navigate]);
+  // useEffect(() => {
+  //   if (Cookies.get("token") || localStorage.getItem("token")) {
+  //     navigate("/profile"); 
+  //   }
+  // }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

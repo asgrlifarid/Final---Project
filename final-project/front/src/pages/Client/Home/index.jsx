@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import TrustedBy from "../TrustedBy";
 import "./index.css";
 import Games from "../Games";
+import Tournament from "../Tournament";
+import Replay from "../Replay";
 
 const Home = () => {
   const [name, setUsername] = useState("Guest");
@@ -52,6 +54,17 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section id="replay">
+        <div className="replay">
+          <Replay />
+        </div>
+      </section>
+
+      <section id="tournament">
+        <div className="tournament-section">
+          <Tournament />
+        </div>
+      </section>
 
       <section id="selling">
         <div className="shop-section">
@@ -64,7 +77,6 @@ const Home = () => {
       <section>
         <TrustedBy />
       </section>
-
     </div>
   );
 };

@@ -10,7 +10,7 @@ export const AddTournament = () => {
   const formik = useFormik({
     initialValues: {
       title: "",
-      gameName: "",
+      tournamentName: "",
       imageUrl: "",
       startTime: "",
       playersCount: "",
@@ -50,19 +50,19 @@ export const AddTournament = () => {
           <p className="add-tournament-error">{formik.errors.title}</p>
         )}
 
-        <label htmlFor="gameName" className="add-tournament-label">
-          Game Name
+        <label htmlFor="tournamentName" className="add-tournament-label">
+          Tournament Name
         </label>
         <input
-          id="gameName"
-          name="gameName"
+          id="tournamentName"
+          name="tournamentName"
           type="text"
           className="add-tournament-input"
           onChange={formik.handleChange}
-          value={formik.values.gameName}
+          value={formik.values.tournamentName}
         />
-        {formik.errors.gameName && formik.touched.gameName && (
-          <p className="add-tournament-error">{formik.errors.gameName}</p>
+        {formik.errors.tournamentName && formik.touched.tournamentName && (
+          <p className="add-tournament-error">{formik.errors.tournamentName}</p>
         )}
 
         <label htmlFor="imageUrl" className="add-tournament-label">

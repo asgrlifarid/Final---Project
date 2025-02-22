@@ -3,20 +3,19 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
- 
 }
 
 .hero {
-
   height: 80vh;
- 
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
   /* padding-left: 5%; */
 }
-#hero{
-background: url("https://www.microsoft.com/en-us/research/uploads/prod/2020/03/gamesummit_1920x720.jpg") no-repeat center;
+#hero {
+  background: url("https://www.microsoft.com/en-us/research/uploads/prod/2020/03/gamesummit_1920x720.jpg")
+    no-repeat center;
   background-size: cover;
 }
 
@@ -26,17 +25,16 @@ background: url("https://www.microsoft.com/en-us/research/uploads/prod/2020/03/g
 
   gap: 20px;
   color: white;
-   
 }
 
 .content h1 {
   font-size: 2.5rem;
-    font-family: "Mulish", serif;
+  font-family: "Mulish", serif;
 }
 
 .content p {
   font-size: 1.2rem;
-    font-family: "Mulish", serif;
+  font-family: "Mulish", serif;
 }
 
 .content button {
@@ -56,7 +54,22 @@ background: url("https://www.microsoft.com/en-us/research/uploads/prod/2020/03/g
 .shop-section {
   padding: 60px 20px;
   text-align: center;
-  background-color: #252525; /* Hafif gri arka plan */
+  background-color: #000000; /* Hafif gri arka plan */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0px auto;
+  max-width: 1200px;
+}
+#tournament {
+  background-color: #000;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.tournament-section {
+  padding: 60px 20px;
+  padding-top: 100px;
+  text-align: center;
+  background-color: #118475; /* Hafif gri arka plan */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0px auto;
@@ -89,12 +102,14 @@ background: url("https://www.microsoft.com/en-us/research/uploads/prod/2020/03/g
     font-size: 1rem;
   }
 }
-#selling{
+#selling {
   background-color: #118475;
   padding-top: 50px;
   padding-bottom: 50px;
 }
-
+#replay{
+background-color: #118475;
+}
 
 /* Mobil uyum */
 @media (max-width: 768px) {

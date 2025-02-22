@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// API servisini tanımla
+
 export const tournamentApi = createApi({
   reducerPath: "tournamentApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8080/api/" }),

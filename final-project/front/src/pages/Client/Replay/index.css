@@ -1,0 +1,84 @@
+.video-carousel-container {
+  background-image: 
+    url('https://www.ytechb.com/wp-content/uploads/2019/11/PUBG-Wallpaper-1.jpg'),
+    url('https://wallpapers.com/images/hd/goofy-elite-crew-4k-cs-go-8ei64d4j0jxqhgbg.jpg'),
+    url('https://images6.alphacoders.com/319/thumb-1920-319523.jpg'),
+    url('https://example.com/image4.jpg'), /* Add your 4th image here */
+    url('https://example.com/image5.jpg'), /* Add your 5th image here */
+    url('https://example.com/image6.jpg'), /* Add your 6th image here */
+    url('https://example.com/image7.jpg'), /* Add your 7th image here */
+    url('https://example.com/image8.jpg'), /* Add your 8th image here */
+    url('https://example.com/image9.jpg'), /* Add your 9th image here */
+    url('https://example.com/image10.jpg'); /* Add your 10th image here */
+  
+  background-size: cover; /* Make sure the images cover the container */
+  background-position: center; /* Center the images */
+  background-repeat: no-repeat; /* Prevent images from repeating */
+  background-blend-mode: overlay; 
+  background-color: rgba(0, 0, 0, 0.4); /* Overlay color for contrast */
+  
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width */
+  
+  animation: changeBackground 40s infinite; /* 40 seconds to cycle through all images */
+}
+
+@keyframes changeBackground {
+  0% {
+    background-image: url('https://www.ytechb.com/wp-content/uploads/2019/11/PUBG-Wallpaper-1.jpg');
+  }
+  10% {
+    background-image: url('https://wallpapers.com/images/hd/goofy-elite-crew-4k-cs-go-8ei64d4j0jxqhgbg.jpg');
+  }
+  20% {
+    background-image: url('https://images6.alphacoders.com/319/thumb-1920-319523.jpg');
+  }
+  30% {
+    background-image: url('https://example.com/image4.jpg');
+  }
+  40% {
+    background-image: url('https://example.com/image5.jpg');
+  }
+  50% {
+    background-image: url('https://example.com/image6.jpg');
+  }
+  60% {
+    background-image: url('https://example.com/image7.jpg');
+  }
+  70% {
+    background-image: url('https://example.com/image8.jpg');
+  }
+  80% {
+    background-image: url('https://example.com/image9.jpg');
+  }
+  90% {
+    background-image: url('https://example.com/image10.jpg');
+  }
+  100% {
+    background-image: url('https://www.ytechb.com/wp-content/uploads/2019/11/PUBG-Wallpaper-1.jpg');
+  }
+}
+
+.video-carousel-content {
+  text-align: center;
+  color: #fff; /* White text for contrast */
+  font-family: Arial, sans-serif;
+}
+.mainly-replay{
+    display: flex;
+
+}
+
+.reklam img{
+
+height: 100vh;
+width: 350px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .reclam-container{
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 1200px;
+}
+}
