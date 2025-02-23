@@ -2,6 +2,8 @@ const TournamentModel = require("../models/tournamentModel");
 
 
 const getAllTournament = async (req, res) => {
+  console.log("salam");
+  
   try {
     const games = await TournamentModel.find({});
 
@@ -46,6 +48,7 @@ const deleteTournament = async (req, res) => {
 
 const editTournament = async (req, res) => {
   const { id } = req.params;
+console.log("salam");
 
   try {
     const updatedTournament = await TournamentModel.findByIdAndUpdate(

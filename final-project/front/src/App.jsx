@@ -18,6 +18,8 @@ import { AddGame } from "./pages/Admin/AddGames";
 import { AddTournament } from "./pages/Admin/AddTournament";
 import TournamentTable from "./pages/Admin/Tournaments";
 import Aadmin from "./pages/Admin/Aadmin";
+import AdminLogin from "./pages/Admin/AdminLogin";
+import RegisterTournament from "./pages/Client/RegisterTournament";
 
 
 function App() {
@@ -31,21 +33,28 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/tos" element={<TeamOfUse />} />
           <Route path="/cookies" element={<Cookies />} />
-          
+          <Route path="/registertournament/:tournamentId" element={<RegisterTournament />} />
         </Route>
       </Routes>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/admin" element={<AdminLogin />} />
       </Routes>
       <Routes>
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={< Aadmin/>} />
-          <Route path="/admin/games" element={<GameTable />} />
-          <Route path="/admin/users" element={<UsersTable />} />
-          <Route path="/admin/tournaments" element={<TournamentTable />} />
-          <Route path="/admin/addtournaments" element={<AddTournament />} />
-          <Route path="/admin/addgames" element={<AddGame />} />
+        <Route path="/admindashboard" element={<AdminLayout />}>
+          <Route index element={<Aadmin />} />
+          <Route path="/admindashboard/games" element={<GameTable />} />
+          <Route path="/admindashboard/users" element={<UsersTable />} />
+          <Route
+            path="/admindashboard/tournaments"
+            element={<TournamentTable />}
+          />
+          <Route
+            path="/admindashboard/addtournaments"
+            element={<AddTournament />}
+          />
+          <Route path="/admindashboard/addgames" element={<AddGame />} />
         </Route>
       </Routes>
     </>

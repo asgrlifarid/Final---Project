@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2"; // SweetAlert2 import edilmesi
+import Swal from "sweetalert2"; 
 import TrustedBy from "../TrustedBy";
 import "./index.css";
 import Games from "../Games";
@@ -13,38 +13,38 @@ const Home = () => {
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
-    console.log("Stored Username in Home component:", storedUsername); // Debugging
+    console.log("Stored Username in Home component:", storedUsername);
     if (storedUsername) {
       setUsername(storedUsername);
     }
   }, []);
 
-  const scrollToGames = () => {
+  const scrollToTournament = () => {
     document
       .getElementById("tournament")
-      .scrollIntoView({ behavior: "smooth" });
+      ?.scrollIntoView({ behavior: "smooth" });
   };
-const handleNavigation = (path) => {
-  console.log("Button clicked, navigating to:", path); // Tıklandığında konsola yazacak
 
-  if (name === "Guest") {
-    Swal.fire({
-      title: "You are not logged in!",
-      text: "Please log in to access this page.",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Go to Login",
-      cancelButtonText: "Cancel",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        navigate("/login");
-      }
-    });
-  } else {
-    navigate(path);
-  }
-};
+  const handleNavigation = (path) => {
+    console.log("Button clicked, navigating to:", path);
 
+    if (name === "Guest") {
+      Swal.fire({
+        title: "You are not logged in!",
+        text: "Please log in to access this page.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Go to Login",
+        cancelButtonText: "Cancel",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
+    } else {
+      scrollToTournament();
+    }
+  };
 
   return (
     <div>

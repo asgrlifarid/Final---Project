@@ -17,6 +17,7 @@ app.use("/api/users", userRouter);
 app.use("/api/tournaments",tournamentRouter);
 app.use("/api", authRouter);
 
+
 mongoose
   .connect(
     "mongodb+srv://farideaazmp202:farideaazmp202@cluster0.prbin.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"

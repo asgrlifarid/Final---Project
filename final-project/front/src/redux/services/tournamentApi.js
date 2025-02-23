@@ -25,11 +25,16 @@ export const tournamentApi = createApi({
       }),
     }),
     editTournaments: builder.mutation({
-      query: ({ id, ...payload }) => ({
-        url: `tournaments/${id}`,
-        method: "PUT",
-        body: payload,
-      }),
+      
+      query: ({ id, test }) => {
+       
+        
+        return {
+          url: `tournaments/${id}`,
+          method: "PATCH",
+          body: test,
+        };
+      },
     }),
   }),
 });

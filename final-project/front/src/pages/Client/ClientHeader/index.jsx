@@ -50,16 +50,16 @@ const ClientHeader = () => {
           <nav>
             <ul>
               <li>
-                <Link to="/">Anasayfa</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/privacy">Gizlilik</Link>
+                <Link to="/privacy">Privacy</Link>
               </li>
               <li>
-                <Link to="/cookies">Çerezler</Link>
+                <Link to="/cookies">Cookies</Link>
               </li>
               <li>
-                <Link to="/tos">Kullanım Şartları</Link>
+                <Link to="/tos">Team of Use</Link>
               </li>
             </ul>
           </nav>

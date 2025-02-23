@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import {
   useDeleteGamesMutation,
   useGetGamesQuery,
   useEditGamesMutation,
 } from "../../../redux/services/gamesApi";
+import Cookies from "js-cookie";
 import "./index.css";
 
 const GameTable = () => {
   const { data, refetch } = useGetGamesQuery();
   const [deleteProductById] = useDeleteGamesMutation();
   const [editGame] = useEditGamesMutation();
+  const navigate = useNavigate();
+
+  // Admin check from localStorage or Cookies
+  const isAdmin = localStorage.getItem("token") && Cookies.get("token");
+
+  useEffect(() => {
+    if (!isAdmin) {
+      // Redirect to the login page if not an admin
+      navigate("/adminlogin"); // You can replace with the appropriate path for your login page
+    }
+  }, [isAdmin, navigate]);
 
   const handleDelete = (productId) => {
     try {

@@ -4,7 +4,7 @@ var jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const register = async (req, res) => {
-  const { email, username, password } = req.body;
+  const { email, username, password,role } = req.body;
   try {
     const existingUser = await UserModel.findOne({ email });
     if (existingUser) {
@@ -19,7 +19,8 @@ const register = async (req, res) => {
       username,
       email,
       password: hashedPassword,
-      bannedUntil: null, // Yeni kullanıcılar banlı değildir
+      role,
+      bannedUntil: null,
     });
 
     await newUser.save();
@@ -34,11 +35,10 @@ const login = async (req, res) => {
   try {
     let user;
 
-    // Eğer email sağlanmışsa, email ile arama yapıyoruz
     if (email) {
       user = await UserModel.findOne({ email });
     }
-    // Eğer username sağlanmışsa, username ile arama yapıyoruz
+   
     else if (username) {
       user = await UserModel.findOne({ username });
     }
@@ -49,7 +49,6 @@ const login = async (req, res) => {
         .json({ message: "Kullanıcı adı veya email hatalı!" });
     }
 
-    // Ban kontrolü: Eğer kullanıcı banlandıysa, giriş yapamayacak
     if (user.bannedUntil && new Date(user.bannedUntil) > new Date()) {
       return res.status(403).json({
         message: `Hesabınız ${new Date(
@@ -58,13 +57,11 @@ const login = async (req, res) => {
       });
     }
 
-    // Şifre kontrolü
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) {
       return res.status(400).json({ message: "Yanlış şifre!" });
     }
 
-    // JWT token oluşturuluyor
     const token = jwt.sign(
       { _id: user._id, username: user.username, role: user.role },
       process.env.JWT_SECRET,

@@ -1,30 +1,10 @@
 import React from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 const ClientFooter = () => {
   return (
     <footer className="footer">
-      {/* <div className="trusted-by">
-         <span>We are trusted by:</span>
-         <div className="partner-logos">
-           {[ 
-             "webedia", 
-             "blast", 
-             "og", 
-             "weplay", 
-             "moonton", 
-             "navi", 
-             "tencent", 
-           ].map((partner) => (
-             <img 
-               key={partner} 
-               src={`https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2xYUJjut40K4zyKIATdoEcS8RxWkqq.png`} 
-               alt={`${partner} logo`} 
-             />
-           ))}
-         </div>
-       </div> */}
-
       <div className="footer-content">
         <div className="footer-section">
           <img
@@ -32,39 +12,22 @@ const ClientFooter = () => {
             alt="Esports Charts Logo"
             className="footer-logo"
           />
-          <div className="social-icons">
-            <a href="#" className="social-icon">
-              X
-            </a>
-            <a href="#" className="social-icon">
-              F
-            </a>
-            <a href="#" className="social-icon">
-              I
-            </a>
-            <a href="#" className="social-icon">
-              D
-            </a>
-            <a href="#" className="social-icon">
-              L
-            </a>
-          </div>
         </div>
 
         <div className="footer-section">
           <h3>Esports rankings:</h3>
           <ul>
             <li>
-              <a href="#">Top esports teams</a>
+              <Link to="#">Top esports teams</Link>
             </li>
             <li>
-              <a href="#">Top esports players</a>
+              <Link to="#">Top esports players</Link>
             </li>
             <li>
-              <a href="#">Top female esports players</a>
+              <Link to="#">Top female esports players</Link>
             </li>
             <li>
-              <a href="#">Top esports games</a>
+              <Link to="#">Top esports games</Link>
             </li>
           </ul>
         </div>
@@ -73,32 +36,32 @@ const ClientFooter = () => {
           <h3>News categories:</h3>
           <ul>
             <li>
-              <a href="#">Esports news</a>
+              <Link to="#">Esports news</Link>
             </li>
             <li>
-              <a href="#">Esports tournaments</a>
+              <Link to="#">Esports tournaments</Link>
             </li>
             <li>
-              <a href="#">Monthly insights</a>
+              <Link to="#">Monthly insights</Link>
             </li>
             <li>
-              <a href="#">Esports teams</a>
+              <Link to="#">Esports teams</Link>
             </li>
             <li>
-              <a href="#">Mobile esports</a>
+              <Link to="#">Mobile esports</Link>
             </li>
           </ul>
         </div>
 
         <div className="footer-section">
           <h3>Help & Feedback</h3>
-          <a href="/contact" className="contact-button">
+          <Link href="/contact" className="contact-button">
             <p>Contact Us</p>
-          </a>
+          </Link>
           <h4>Contributions</h4>
-          <a href="/submit" className="submit-button">
+          <Link href="/submit" className="submit-button">
             Submit Event
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -109,9 +72,9 @@ const ClientFooter = () => {
           third-parties and are used for informational purposes only.
         </p>
         <div className="footer-links">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/tos">Terms of Use</a>
-          <a href="/cookies">Cookie Policy</a>
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/tos">Terms of Use</Link>
+          <Link to="/cookies">Cookie Policy</Link>
           <div className="language-selector">
             <span>🌐</span>
             <select>

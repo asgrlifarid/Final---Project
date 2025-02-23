@@ -1,18 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { useGetTournamentsQuery } from "../../../redux/services/tournamentApi";
-import Swal from "sweetalert2"; // SweetAlert2 import edilmesi
+import Swal from "sweetalert2";
 import "./index.css";
 
 export default function Tournament() {
   const { data, isLoading, isError } = useGetTournamentsQuery();
   const navigate = useNavigate();
-  const username = localStorage.getItem("username"); // Kullanıcı adı localStorage'dan alınıyor
+  const username = localStorage.getItem("username");
 
   if (isLoading) return <div className="loading">Loading...</div>;
   if (isError) return <div className="error">Error loading tournaments</div>;
 
   const handleRegisterClick = (tournamentId) => {
-    // Eğer kullanıcı login olmamışsa, login sayfasına yönlendirme yapıyoruz
     if (username === "Guest" || !username) {
       Swal.fire({
         title: "You are not logged in!",
@@ -23,11 +22,11 @@ export default function Tournament() {
         cancelButtonText: "Cancel",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/login"); // Login sayfasına yönlendirme
+          navigate("/login");
         }
       });
     } else {
-      navigate(`/registertournament/${tournamentId}`); // Kullanıcı login olmuşsa, turnuva kaydına yönlendiriyoruz
+      navigate(`/registertournament/${tournamentId}`);
     }
   };
 
@@ -47,22 +46,14 @@ export default function Tournament() {
 
             <div className="tournament-content">
               <h3 className="tournament-title">{tournament.title}</h3>
-
-              <div className="tournament-details">
-                <p>
-                  <span className="label">Tournament:</span>{" "}
-                  {tournament.tournamentName}
-                </p>
-                <p>
-                  <span className="label">Start Time:</span>{" "}
-                  {tournament.startTime}
-                </p>
-                <p>
-                  <span className="label">Max - Players:</span>{" "}
-                  {tournament.playersCount}
-                </p>
-              </div>
-
+              <p>
+                <span className="label">Start Time:</span>{" "}
+                {tournament.startTime}
+              </p>
+              <p>
+                <span className="label">Max Players:</span>{" "}
+                {tournament.maxPlayers}
+              </p>
               <button
                 className="register-button"
                 onClick={() => handleRegisterClick(tournament._id)}

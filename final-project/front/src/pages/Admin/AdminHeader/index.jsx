@@ -15,20 +15,20 @@ const AdminHeader = () => {
           <nav>
             <ul>
               <li>
-                <Link to="/admin/users">Users</Link>
+                <Link to="/admindashboard/users">Users</Link>
               </li>
-              
+
               <li>
-                <Link to="/admin/tournaments">Tournaments</Link>
-              </li>
-              <li>
-                <Link to="/admin/games">Games</Link>
+                <Link to="/admindashboard/tournaments">Tournaments</Link>
               </li>
               <li>
-                <Link to="/admin/addtournaments">Add Tournament</Link>
+                <Link to="/admindashboard/games">Games</Link>
               </li>
               <li>
-                <Link to="/admin/addgames">Add Game</Link>
+                <Link to="/admindashboard/addtournaments">Add Tournament</Link>
+              </li>
+              <li>
+                <Link to="/admindashboard/addgames">Add Game</Link>
               </li>
             </ul>
           </nav>

@@ -15,12 +15,7 @@ const Register = () => {
   const [registerUser] = useRegUserMutation();
   const navigate = useNavigate();
 
-  // Kullanıcı zaten giriş yapmışsa /register sayfasına gitmesini engelle
-  // useEffect(() => {
-  //   if (Cookies.get("token") || localStorage.getItem("token")) {
-  //     navigate("/profile"); 
-  //   }
-  // }, [navigate]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,7 +28,7 @@ const Register = () => {
 
     try {
       await registerUser({ email, username, password }).unwrap();
-      navigate("/login"); // Başarılı kayıt sonrası login sayfasına yönlendir
+      navigate("/login"); 
     } catch (error) {
       setHasError(true);
       console.error("Registration failed", error);

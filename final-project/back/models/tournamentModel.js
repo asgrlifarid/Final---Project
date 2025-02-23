@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-// const { Schema } = mongoose;
-
 const Schema = mongoose.Schema;
 
 const TournamentSchema = new Schema(
@@ -9,8 +7,9 @@ const TournamentSchema = new Schema(
     title: { type: String, required: true },
     tournamentName: { type: String, required: true },
     imageUrl: { type: String, required: true },
-    startTime:{type :String },
-    playersCount:{type :Number },
+    startTime: { type: String },
+    playersName: { type: [], default: [] }, 
+    maxPlayers: { type: Number, required: true },
     category: { type: String },
   },
   { timestamps: true }

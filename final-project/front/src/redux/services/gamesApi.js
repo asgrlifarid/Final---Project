@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// API servisini tanımla
+
 export const gamesApi = createApi({
   reducerPath: "gamesApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8080/api/" }),
@@ -34,7 +34,7 @@ export const gamesApi = createApi({
   }),
 });
 
-// Hook'ları dışa aktar
+
 export const {
   useGetGamesQuery,
   useGetGamesByIdQuery,

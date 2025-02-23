@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router-dom"; // Importing useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
 import { useLoginUserMutation } from "../../../redux/services/authApi";
 
@@ -16,7 +16,7 @@ const Login = () => {
   const [generalError, setGeneralError] = useState("");
 
   const [loginUser] = useLoginUserMutation();
-  const navigate = useNavigate(); // Initialize navigate hook
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +50,7 @@ const Login = () => {
           text: `Your account is banned until ${bannedUntil.toLocaleString()}. Contact support for more info.`,
           icon: "error",
         });
-        return; // Token not saved!
+        return; 
       }
 
       if (response.token) {
@@ -61,8 +61,8 @@ const Login = () => {
           response.user?.username || response.user?.email || "Guest"
         );
 
-        // Redirect to the dashboard page
-        navigate("/"); // Use navigate to redirect
+        
+        navigate("/"); 
       } else {
         setGeneralError("Invalid email or password");
       }

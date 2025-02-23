@@ -8,7 +8,7 @@ import { FaHeart } from "react-icons/fa";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-import Swal from "sweetalert2"; // SweetAlert2 import edilmesi
+import Swal from "sweetalert2"; 
 
 const Games = () => {
   const { data, isLoading, isError } = useGetGamesQuery();
@@ -16,17 +16,15 @@ const Games = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const username = localStorage.getItem("username"); // Kullanıcı adı localStorage'dan alınıyor
+  const username = localStorage.getItem("username"); 
 
   if (isLoading) return <h1>Loading ...</h1>;
   if (isError) return <h1>Some Error Occurred ..!</h1>;
 
-  // Eğer kullanıcı login olmuşsa, favoriye ekleme işlemi yapılacak fonksiyon
   const handleFavoriteToggle = (game) => {
-    dispatch(toggleFavorites(game)); // Favoriye ekleme işlemi
+    dispatch(toggleFavorites(game));
   };
 
-  // Eğer kullanıcı login olmamışsa, yönlendirme yapılacak fonksiyon
   const handleNavigation = () => {
     Swal.fire({
       title: "You are not logged in!",
@@ -37,26 +35,25 @@ const Games = () => {
       cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
-        navigate("/login"); // Login sayfasına yönlendirme
+        navigate("/login");
       }
     });
   };
 
-  // Eğer kullanıcı login olmamışsa, oyun linkine gitmek yerine login sayfasına yönlendir
   const handleGameLink = (gameLink) => {
     if (username === "Guest" || !username) {
-      handleNavigation(); // Kullanıcı login değilse yönlendirme yapılır
+      handleNavigation(); 
     } else {
-      window.location.href = gameLink; // Kullanıcı login olmuşsa oyun linkine gidilir
+      window.location.href = gameLink; 
     }
   };
 
-  // Eğer kullanıcı login olmamışsa, oyun detay sayfasına gitmek yerine login sayfasına yönlendir
+  
   const handleGameDetail = (gameId) => {
     if (username === "Guest" || !username) {
-      handleNavigation(); // Kullanıcı login değilse yönlendirme yapılır
+      handleNavigation();
     } else {
-      navigate(`/games/${gameId}`); // Kullanıcı login olmuşsa oyun detay sayfasına gidilir
+      navigate(`/games/${gameId}`); 
     }
   };
 
@@ -73,9 +70,9 @@ const Games = () => {
                 <button
                   onClick={() => {
                     if (username === "Guest" || !username) {
-                      handleNavigation(); // Login olmamışsa, navigate fonksiyonu çalışacak
+                      handleNavigation();
                     } else {
-                      handleFavoriteToggle(game); // Login olmuşsa, favoriye ekleme işlemi yapılacak
+                      handleFavoriteToggle(game);
                     }
                   }}
                 >
