@@ -1,17 +1,34 @@
 import { useNavigate } from "react-router-dom";
 import { useGetTournamentsQuery } from "../../../redux/services/tournamentApi";
+import Swal from "sweetalert2"; // SweetAlert2 import edilmesi
 import "./index.css";
 
 export default function Tournament() {
   const { data, isLoading, isError } = useGetTournamentsQuery();
   const navigate = useNavigate();
+  const username = localStorage.getItem("username"); // Kullanıcı adı localStorage'dan alınıyor
 
   if (isLoading) return <div className="loading">Loading...</div>;
   if (isError) return <div className="error">Error loading tournaments</div>;
 
   const handleRegisterClick = (tournamentId) => {
-    // Navigate to the register page with the tournament ID as a query parameter or use it as needed.
-    navigate(`/registertournament/${tournamentId}`);
+    // Eğer kullanıcı login olmamışsa, login sayfasına yönlendirme yapıyoruz
+    if (username === "Guest" || !username) {
+      Swal.fire({
+        title: "You are not logged in!",
+        text: "Please log in to register for this tournament.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Go to Login",
+        cancelButtonText: "Cancel",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login"); // Login sayfasına yönlendirme
+        }
+      });
+    } else {
+      navigate(`/registertournament/${tournamentId}`); // Kullanıcı login olmuşsa, turnuva kaydına yönlendiriyoruz
+    }
   };
 
   return (

@@ -177,6 +177,9 @@ body {
 .login-card .forgot-password a:hover {
   text-decoration: underline;
 }
+.error-message{
+  color: red;
+}
 
 /* Responsive design */
 @media (max-width: 480px) {

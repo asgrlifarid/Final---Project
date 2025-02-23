@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2"; // SweetAlert2 import edilmesi
 import TrustedBy from "../TrustedBy";
 import "./index.css";
 import Games from "../Games";
@@ -19,23 +20,31 @@ const Home = () => {
   }, []);
 
   const scrollToGames = () => {
-    document.getElementById("selling").scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("tournament")
+      .scrollIntoView({ behavior: "smooth" });
   };
+const handleNavigation = (path) => {
+  console.log("Button clicked, navigating to:", path); // Tıklandığında konsola yazacak
 
-  const handleNavigation = (path) => {
-    // Eğer kullanıcı giriş yaptıysa ve login sayfasına gitmek istiyorsa
-    if (path === "/login") {
-      if (name !== "Guest") {
-        // Kullanıcı giriş yaptıysa login sayfasına yönlendirme, /not-found'a yönlendir
-        navigate("/not-found");
-      } else {
-        // Kullanıcı giriş yapmadıysa login sayfasına yönlendir
+  if (name === "Guest") {
+    Swal.fire({
+      title: "You are not logged in!",
+      text: "Please log in to access this page.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Go to Login",
+      cancelButtonText: "Cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
         navigate("/login");
       }
-    } else {
-      navigate(path);
-    }
-  };
+    });
+  } else {
+    navigate(path);
+  }
+};
+
 
   return (
     <div>
@@ -49,7 +58,9 @@ const Home = () => {
                 are located at the best place. <br /> Only click the button and
                 join the adventure with us.
               </p>
-              <button onClick={scrollToGames}>Watch Tournaments</button>
+              <button onClick={() => handleNavigation("/login")}>
+                Watch Tournaments
+              </button>
             </div>
           </div>
         </div>

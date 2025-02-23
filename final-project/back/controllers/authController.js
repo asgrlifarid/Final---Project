@@ -33,32 +33,38 @@ const login = async (req, res) => {
   const { email, username, password } = req.body;
   try {
     let user;
+
+    // Eğer email sağlanmışsa, email ile arama yapıyoruz
     if (email) {
       user = await UserModel.findOne({ email });
-    } else if (username) {
+    }
+    // Eğer username sağlanmışsa, username ile arama yapıyoruz
+    else if (username) {
       user = await UserModel.findOne({ username });
     }
 
     if (!user) {
       return res
         .status(400)
-        .json({ message: "Username or Email is incorrect!" });
+        .json({ message: "Kullanıcı adı veya email hatalı!" });
     }
 
-    // **Ban kontrolü**
+    // Ban kontrolü: Eğer kullanıcı banlandıysa, giriş yapamayacak
     if (user.bannedUntil && new Date(user.bannedUntil) > new Date()) {
       return res.status(403).json({
-        message: `You are banned until ${new Date(
+        message: `Hesabınız ${new Date(
           user.bannedUntil
-        ).toLocaleDateString()}`,
+        ).toLocaleDateString()} tarihine kadar yasaklanmış.`,
       });
     }
 
+    // Şifre kontrolü
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) {
-      return res.status(400).json({ message: "Wrong Password!" });
+      return res.status(400).json({ message: "Yanlış şifre!" });
     }
 
+    // JWT token oluşturuluyor
     const token = jwt.sign(
       { _id: user._id, username: user.username, role: user.role },
       process.env.JWT_SECRET,
@@ -66,7 +72,7 @@ const login = async (req, res) => {
     );
 
     res.status(200).json({
-      message: "Successfully logged in!",
+      message: "Başarıyla giriş yapıldı!",
       user: {
         _id: user._id,
         username: user.username,

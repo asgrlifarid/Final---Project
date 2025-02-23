@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom"; // Importing useNavigate
 import "./index.css";
 import { useLoginUserMutation } from "../../../redux/services/authApi";
 
@@ -15,6 +16,7 @@ const Login = () => {
   const [generalError, setGeneralError] = useState("");
 
   const [loginUser] = useLoginUserMutation();
+  const navigate = useNavigate(); // Initialize navigate hook
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,7 +50,7 @@ const Login = () => {
           text: `Your account is banned until ${bannedUntil.toLocaleString()}. Contact support for more info.`,
           icon: "error",
         });
-        return; // Token kaydedilmiyor!
+        return; // Token not saved!
       }
 
       if (response.token) {
@@ -58,6 +60,9 @@ const Login = () => {
           "username",
           response.user?.username || response.user?.email || "Guest"
         );
+
+        // Redirect to the dashboard page
+        navigate("/"); // Use navigate to redirect
       } else {
         setGeneralError("Invalid email or password");
       }
@@ -134,8 +139,13 @@ const Login = () => {
           </button>
 
           <div className="forgot-password">
-            <a href="#">Forgot your password?</a> <br />
-            <a href="/register">Don't have an account? Sign up!</a>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/register">Don't have an account? Sign up!</Link>
+                </li>
+              </ul>
+            </nav>
           </div>
         </form>
       </div>

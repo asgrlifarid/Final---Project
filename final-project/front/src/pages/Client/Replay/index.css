@@ -1,31 +1,124 @@
+.mainly-replay {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.reklam {
+  flex: 1;
+  max-width: 350px;
+  height: 100vh;
+}
+
+.reklam img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image scales to cover the container */
+}
+
+.reclam-container {
+  flex: 2;
+  width: 100%;
+  min-width: 600px; /* Set a minimum width to ensure it doesn’t get too small */
+}
+.replay-container{
+    max-width: 2000px;
+}
+
+.video-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-carousel-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center */
+  align-items: center; /* Horizontally center */
+  text-align: center;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  height: 100%; /* Ensure it takes full height */
+}
+.video-carousel-content h1{
+font-size: 10rem;
+  font-family: "Mulish", serif;
+  opacity: 0.7;
+}
+.video-carousel-content p{
+  font-size: 3rem;
+    font-family: "Mulish", serif;
+}
+
+@media only screen and (max-width: 1000px) {
+  .mainly-replay {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+
+  .reklam {
+    max-width: 100%;
+    height: auto; /* Let the height adjust automatically */
+  }
+
+  .reklam img {
+    width: 100%; /* Ensure the image is responsive */
+    height: auto; /* Let the height adjust automatically */
+  }
+
+  .reclam-container {
+    min-width: 100%; /* Ensure the container takes full width on smaller screens */
+    margin-top: 20px;
+  }
+
+  .video-carousel-container {
+    height: 300px; /* Control the height for better small-screen display */
+  }
+
+  .video-carousel-content h1 {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+
+  .video-carousel-content p {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .reclam-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 1200px;
+  }
+}
+
 .video-carousel-container {
   background-image: 
-    url('https://www.ytechb.com/wp-content/uploads/2019/11/PUBG-Wallpaper-1.jpg'),
+    url('https://wstatic-prod.pubg.com/web/live/main_b119c41/img/d16f5b2.jpg'),
     url('https://wallpapers.com/images/hd/goofy-elite-crew-4k-cs-go-8ei64d4j0jxqhgbg.jpg'),
     url('https://images6.alphacoders.com/319/thumb-1920-319523.jpg'),
-    url('https://example.com/image4.jpg'), /* Add your 4th image here */
-    url('https://example.com/image5.jpg'), /* Add your 5th image here */
-    url('https://example.com/image6.jpg'), /* Add your 6th image here */
-    url('https://example.com/image7.jpg'), /* Add your 7th image here */
-    url('https://example.com/image8.jpg'), /* Add your 8th image here */
-    url('https://example.com/image9.jpg'), /* Add your 9th image here */
-    url('https://example.com/image10.jpg'); /* Add your 10th image here */
+    url('https://play-lh.googleusercontent.com/rY8mJEPtY_1-GEHjlFe2E_MTWHUNjZ0BAISqXlAUh6sCg1HJL3ZgPXNjd-5eN8zXuOA=w648-h364-rw'),
+    url('https://store-images.s-microsoft.com/image/apps.50330.13596826061048113.dc7d8fcc-5e5b-464b-8413-09684860fddd.23de0441-d7f3-4a8b-ab05-fb1a3a97c4e4?q=90&w=480&h=270'),
+    url('https://rukminim2.flixcart.com/image/850/1000/l2w7b0w0/poster/w/m/x/small-yaa-gta-v-franklin-poster-18x12-inch-multicolor-gtav-01-p-original-image485nrxhhzgg.jpeg?q=90&crop=false'),
+    url('https://cdn1.epicgames.com/offer/24b9b5e323bc40eea252a10cdd3b2f10/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b'),
+    url('https://gaming-cdn.com/images/products/612/screenshot/battlefield-5-pc-game-ea-app-wallpaper-5.jpg?v=1729758248'),
+    url('https://assets.xboxservices.com/assets/f3/44/f3441301-c2b4-41ff-a186-198ca17ae697.jpg?n=EA-Sports-FC-24_GLP-Page-Hero-1084_Launch_1920x1080.jpg'),
+    url('https://www.moonstats.com/news/wp-content/uploads/2024/03/Shrapnel_KeyArt_2.jpg');
   
-  background-size: cover; /* Make sure the images cover the container */
-  background-position: center; /* Center the images */
-  background-repeat: no-repeat; /* Prevent images from repeating */
-  background-blend-mode: overlay; 
-  background-color: rgba(0, 0, 0, 0.4); /* Overlay color for contrast */
-  
-  height: 100vh; /* Full viewport height */
-  width: 100%; /* Full width */
-  
-  animation: changeBackground 40s infinite; /* 40 seconds to cycle through all images */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  width: 100%;
+  animation: changeBackground 40s infinite;
 }
 
 @keyframes changeBackground {
   0% {
-    background-image: url('https://www.ytechb.com/wp-content/uploads/2019/11/PUBG-Wallpaper-1.jpg');
+    background-image: url('https://wstatic-prod.pubg.com/web/live/main_b119c41/img/d16f5b2.jpg');
   }
   10% {
     background-image: url('https://wallpapers.com/images/hd/goofy-elite-crew-4k-cs-go-8ei64d4j0jxqhgbg.jpg');
@@ -34,51 +127,27 @@
     background-image: url('https://images6.alphacoders.com/319/thumb-1920-319523.jpg');
   }
   30% {
-    background-image: url('https://example.com/image4.jpg');
+    background-image: url('https://play-lh.googleusercontent.com/rY8mJEPtY_1-GEHjlFe2E_MTWHUNjZ0BAISqXlAUh6sCg1HJL3ZgPXNjd-5eN8zXuOA=w648-h364-rw');
   }
   40% {
-    background-image: url('https://example.com/image5.jpg');
+    background-image: url('https://store-images.s-microsoft.com/image/apps.50330.13596826061048113.dc7d8fcc-5e5b-464b-8413-09684860fddd.23de0441-d7f3-4a8b-ab05-fb1a3a97c4e4?q=90&w=480&h=270');
   }
   50% {
-    background-image: url('https://example.com/image6.jpg');
+    background-image: url('https://rukminim2.flixcart.com/image/850/1000/l2w7b0w0/poster/w/m/x/small-yaa-gta-v-franklin-poster-18x12-inch-multicolor-gtav-01-p-original-image485nrxhhzgg.jpeg?q=90&crop=false');
   }
   60% {
-    background-image: url('https://example.com/image7.jpg');
+    background-image: url('https://cdn1.epicgames.com/offer/24b9b5e323bc40eea252a10cdd3b2f10/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b');
   }
   70% {
-    background-image: url('https://example.com/image8.jpg');
+    background-image: url('https://gaming-cdn.com/images/products/612/screenshot/battlefield-5-pc-game-ea-app-wallpaper-5.jpg?v=1729758248');
   }
   80% {
-    background-image: url('https://example.com/image9.jpg');
+    background-image: url('https://assets.xboxservices.com/assets/f3/44/f3441301-c2b4-41ff-a186-198ca17ae697.jpg?n=EA-Sports-FC-24_GLP-Page-Hero-1084_Launch_1920x1080.jpg');
   }
   90% {
-    background-image: url('https://example.com/image10.jpg');
+    background-image: url('https://www.moonstats.com/news/wp-content/uploads/2024/03/Shrapnel_KeyArt_2.jpg');
   }
   100% {
-    background-image: url('https://www.ytechb.com/wp-content/uploads/2019/11/PUBG-Wallpaper-1.jpg');
+    background-image: url('https://wstatic-prod.pubg.com/web/live/main_b119c41/img/d16f5b2.jpg');
   }
-}
-
-.video-carousel-content {
-  text-align: center;
-  color: #fff; /* White text for contrast */
-  font-family: Arial, sans-serif;
-}
-.mainly-replay{
-    display: flex;
-
-}
-
-.reklam img{
-
-height: 100vh;
-width: 350px;
-}
-
-@media only screen and (min-width: 1200px) {
-  .reclam-container{
-    margin: 0 auto;
-    max-width: 1200px;
-    min-width: 1200px;
-}
 }

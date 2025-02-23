@@ -18,6 +18,7 @@ header #header nav ul {
   gap: 1rem;
 }
 
+
 .latest-word {
   position: relative;
 }
@@ -26,7 +27,7 @@ header #header nav ul li {
   display: inline;
 }
 
-header #header nav ul li a {
+.icons a ,header #header nav ul li a {
   text-decoration: none;
   color: #fff;
   font-family: "Josefin Sans", sans-serif;
@@ -43,14 +44,14 @@ header #header nav ul li a:hover {
 
 header #header .icons {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   cursor: pointer;
 }
 header #header .icons {
   color: #fff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   header #header nav ul {
     display: none;
     flex-direction: column;
@@ -81,9 +82,9 @@ header #header .icons {
     color: #fff;
   }
 
-  header #header .icons {
+  /* header #header .icons {
     display: none;
-  }
+  } */
 
   header #header .logo img {
     width: 60%;
@@ -98,7 +99,7 @@ header #header .icons {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   header #header.nav-open nav ul {
     display: flex;
   }
@@ -109,81 +110,26 @@ header #header .icons {
     /* animation: growShrink 3s infinite; */
   }
 }
+@media (max-width: 400px) {
+ header #header .icons {
+    gap: 0.5rem;
+  }
+  /* header #header .logo img {
+    width: 40%;
+  } */
+}
 
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
   header #header .new-menu-item {
     display: none;
   }
 }
 
-/* .full-page {
-      position: absolute;
-      top: 45%;
-      left: 45%;
-      width: 100%;
-      height: 100%;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      z-index: 10;
-    } */
 
-/* .animation-box {
-      background-image: url(../image/logo.png);
-      background-repeat: no-repeat;
-      background-position: cover;
-      overflow: hidden;
-      width: 200px;
-      height: 100px;
-      border: 7 px solid black;
-      background-color: red;
-      border-radius: 6px;
-      animation: jumpIn 1s ease-out forwards;
-    } */
-
-/*    
-    @keyframes jumpIn {
-      0% {
-        transform: scale(0);
-        opacity: 0;
-      }
-      50% {
-        transform: scale(1.2);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1); 
-        opacity: 1;
-      }
-    } */
-/* 
-
-    .content {
-      display: none;
-      opacity: 0;
-      animation: fadeIn 2s 1s forwards; 
-      z-index: 1;
-    } */
-
-/* @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-   
-    .content.visible {
-      display: block;
-    } */
 
 .icons button {
   background-color: transparent;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   font-size: 1rem;
   color: white;
 
@@ -194,4 +140,40 @@ header #header .icons {
 }
 .icons button:hover{
   background-color: #118475;
+}
+
+/* Styling for the user button */
+header #header .user-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;  /* Space between icon and text */
+  padding: 10px 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+header #header .user-button:hover {
+  background-color: #118475;
+}
+
+header #header .user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+header #header .user-info p {
+  margin: 0; /* Remove margin for better alignment */
+}
+
+/* Add icon styling if needed */
+header #header .user-info svg {
+  font-size: 1.2rem;
 }

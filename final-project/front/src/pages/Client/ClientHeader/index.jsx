@@ -1,23 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaUser, FaHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
+import Cookies from "js-cookie";
+
 import "./index.css";
 
 const ClientHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [username, setUsername] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
-    setUsername(
-      storedUsername && storedUsername !== "null" ? storedUsername : null
-    );
+    const token = Cookies.get("token");
+
+    if (storedUsername && token) {
+      setUsername(storedUsername);
+    } else {
+      setUsername(null);
+    }
   }, []);
 
-  // Menü açma-kapatma
   const toggleMenu = () => {
     setMenuOpen((prevState) => !prevState);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen((prevState) => !prevState);
+  };
+
+  const handleLogout = () => {
+    
+    Cookies.remove("token");
+    localStorage.removeItem("username");
+    setUsername(null);
   };
 
   return (
@@ -33,36 +50,38 @@ const ClientHeader = () => {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/">Anasayfa</Link>
               </li>
               <li>
-                <Link to="/games">Games</Link>
+                <Link to="/privacy">Gizlilik</Link>
               </li>
               <li>
-                <Link to="/tournament">Tournaments</Link>
+                <Link to="/cookies">Çerezler</Link>
               </li>
               <li>
-                <Link to="/privacy">Privacy</Link>
-              </li>
-              <li>
-                <Link to="/cookies">Cookies</Link>
-              </li>
-              <li>
-                <Link to="/tos">Terms of Use</Link>
+                <Link to="/tos">Kullanım Şartları</Link>
               </li>
             </ul>
           </nav>
           <div className="icons">
-            <Link to="/wishlist">
-              <FaHeart />
-            </Link>
+            <button>
+              <Link to="/wishlist">
+                <FaHeart />
+              </Link>
+            </button>
             {username ? (
-              <div className="user-info">
-                <FaUser />
+              <div className="user-info" onClick={toggleDropdown}>
                 <p>{username}</p>
+                {dropdownOpen && (
+                  <div className="dropdown-menu">
+                    <button onClick={handleLogout}>Log out</button>
+                  </div>
+                )}
               </div>
             ) : (
-              <Link to="/login">Log in</Link>
+              <button>
+                <Link to="/login">Log In</Link>
+              </button>
             )}
           </div>
           <div className="new-menu-item" onClick={toggleMenu}>

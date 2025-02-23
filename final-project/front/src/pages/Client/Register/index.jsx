@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./index.css";
 import { useRegUserMutation } from "../../../redux/services/authApi";
@@ -130,7 +130,7 @@ const Register = () => {
           </button>
 
           <div className="forgot-password">
-            <a href="/login">Already have an account? Log in</a>
+            <Link to="/login">Already have an account? Log in</Link>
           </div>
         </form>
       </div>

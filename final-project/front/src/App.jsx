@@ -10,7 +10,7 @@ import DetailGame from "./pages/Client/DetailGame";
 import Privacy from "./pages/Client/Privacy";
 import TeamOfUse from "./pages/Client/TeamOfUse";
 import Cookies from "./pages/Client/CookiePrivacy";
-import Profile from "./pages/Client/Profile";
+
 import GameTable from "./pages/Admin/Game";
 import UsersTable from "./pages/Admin/Users/UserTable";
 import AdminLayout from "./layout/AdminLayout";
@@ -31,7 +31,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/tos" element={<TeamOfUse />} />
           <Route path="/cookies" element={<Cookies />} />
-          <Route path="/profile" element={<Profile />} />
+          
         </Route>
       </Routes>
       <Routes>
